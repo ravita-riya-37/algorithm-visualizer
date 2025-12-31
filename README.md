@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+📊 Algorithm Visualizer (DSA Learning Tool)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive Algorithm Visualizer built using React.js to help understand and analyze sorting and searching algorithms through step-by-step visual animations, comparisons, and swaps tracking.
 
-## Available Scripts
+This project is designed for DSA learning, interview preparation, and educational purposes.
 
-In the project directory, you can run:
+🚀 Features
+🔹 Sorting Algorithms
 
-### `npm start`
+Bubble Sort
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Selection Sort
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Insertion Sort
 
-### `npm test`
+Merge Sort
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Quick Sort
 
-### `npm run build`
+Heap Sort
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🔹 Searching Algorithms
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Linear Search
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Binary Search
 
-### `npm run eject`
+⚠️ Shows warning if array is not sorted (educational constraint)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🎯 Core Highlights
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+📌 Step-by-step execution of algorithms
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📊 Real-time tracking of comparisons & swaps
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🎥 Animated bar visualization for arrays
 
-## Learn More
+🔁 Next / Previous step navigation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📐 Dynamic array generation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🧠 Algorithm time complexity reference
 
-### Code Splitting
+📱 Responsive & clean UI (Tailwind CSS)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🛠️ Tech Stack
 
-### Analyzing the Bundle Size
+Frontend: React.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Styling: Tailwind CSS
 
-### Making a Progressive Web App
+State Management: React Hooks & Context API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Algorithms: Custom JavaScript implementations
 
-### Advanced Configuration
+Tooling: ESLint, Create React App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📂 Project Structure
+src/
+│── algorithms/        # Sorting & searching logic
+│── components/        # Reusable UI components
+│── pages/             # Visualizer, Step Analysis, Comparison
+│── context/           # Global visualizer state
+│── hooks/             # Custom hooks for steps & control
+│── utils/             # Helper functions
