@@ -1,0 +1,113 @@
+/* ================= GLOBAL ================= */
+
+body {
+  margin: 0;
+  background-color: #000;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  transform: scale(1.06);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.6);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* secondary button */
+.btn-secondary {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: white;
+  background: #374151;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+  transform: scale(1.05);
+}
+
+/* ================= INPUTS ================= */
+
+.input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  border: 1px solid #4b5563;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.5);
+}
+
+/* ================= RANGE SLIDER ================= */
+
+.range {
+  width: 100%;
+  cursor: pointer;
+  accent-color: #a855f7;
+}
+
+/* ================= BARS ================= */
+
+.bar-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 320px;
+  gap: 6px;
+}
+
+.bar {
+  width: 16px;
+  border-radius: 6px;
+  transition: height 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.bar-normal {
+  background: linear-gradient(to top, #3b82f6, #60a5fa);
+}
+
+.bar-active {
+  background: linear-gradient(to top, #facc15, #fde047);
+}
+
+.bar-swap {
+  background: linear-gradient(to top, #ef4444, #f87171);
+}
+
+.bar-value {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #e5e7eb;
+}
