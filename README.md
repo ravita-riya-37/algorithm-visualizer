@@ -37,7 +37,7 @@ This project is designed for **DSA learning**, **interview preparation**, and **
 ## 🛠️ Tech Stack
 - **Frontend:** React.js  
 - **Styling:** Tailwind CSS  
-- **State Management:** React Hooks & Context API  
+- **State Management:** React Hooks
 - **Algorithms:** Custom JavaScript implementations  
 - **Tooling:** ESLint, Create React App  
 
