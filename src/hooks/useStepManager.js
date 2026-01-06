@@ -10,7 +10,6 @@ export default function useStepManager(stepsArray) {
       setCurrentStepIndex(currentStepIndex + 1);
     }
   };
-
   // Go to previous step
   const prevStep = () => {
     if (currentStepIndex > 0) {
@@ -36,6 +35,7 @@ export default function useStepManager(stepsArray) {
     steps,
     currentStep,
     currentStepIndex,
+    
     nextStep,
     prevStep,
     resetSteps,

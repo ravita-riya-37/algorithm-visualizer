@@ -10,6 +10,10 @@ export const playSteps = async ({
   shouldStopRef,
   speed
 }) => {
+
+  // ⏱️ start time (same as old code logic)
+  startTimeRef.current = performance.now();
+
   for (let step of steps) {
 
     if (shouldStopRef.current) return;
@@ -22,7 +26,7 @@ export const playSteps = async ({
     if (step.type === "compare") {
       setCurrentIndices(step.indices);
     }
-
+    
     if (step.type === "swap") {
       setArray(step.array);
       setSwapIndices(step.indices);
@@ -37,10 +41,11 @@ export const playSteps = async ({
     await new Promise(r => setTimeout(r, delay));
   }
 
+  // ⏱️ end time & calculation (same result as old code)
   if (!shouldStopRef.current) {
-    setCurrentIndices([]);
-    setSwapIndices([]);
     const end = performance.now();
     setTimeTaken((end - startTimeRef.current).toFixed(2));
+    setCurrentIndices([]);
+    setSwapIndices([]);
   }
 };

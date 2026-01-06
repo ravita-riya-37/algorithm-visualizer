@@ -148,7 +148,7 @@ const StepAnalysis = () => {
       if (selectedAlgo === "linear") {
         generatedSteps = linearSearchSteps(
           displayArray,
-          Number(target)
+          Number(target),isSortedArray(displayArray)
         );
       }
 
@@ -194,25 +194,13 @@ const StepAnalysis = () => {
           transition
         "
       />
-      <button className=" px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95" onClick={applyCustomArray}>
+      <button className="btns" onClick={applyCustomArray}>
         Set Array
       </button>
     </div>
 
     {/* ===== ARRAYS ===== */}
-    <button onClick={() => navigate(-1)} className=" px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">
+    <button onClick={() => navigate(-1)} className="btns">
         Back
       </button>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
@@ -292,44 +280,20 @@ const StepAnalysis = () => {
       <button
         onClick={startAlgo}
         disabled={SEARCH_ALGOS.includes(selectedAlgo) && target === ""}
-        className=" px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95"
+        className="btns"
       >
         Start
       </button>
 
-      <button onClick={prevStep} className=" px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">
+      <button onClick={prevStep} className="btns">
         Previous
       </button>
 
-      <button onClick={nextStep} className=" px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">
+      <button onClick={nextStep} className="btns">
         Next
       </button>
 
-      <button onClick={resetAll} className=" px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">
+      <button onClick={resetAll} className="btns">
         Reset
       </button>
 

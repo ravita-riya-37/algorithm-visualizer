@@ -4,7 +4,6 @@ import Controls from "../components/Controls";
 import Stats from "../components/Stats";
 import ArrayDisplay from "../components/ArrayDisplay";
 import { useNavigate } from "react-router-dom";
-import { sleep } from "../utils/delay";
 import { playSteps } from "../utils/playSteps";
 import {
   bubbleSortSteps,
@@ -169,23 +168,11 @@ const Visualizer = () => {
 
       {/* 🔗 NAVIGATION */}
       <div className="flex justify-center gap-4 mb-6">
-        <button className=" px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95" onClick={() => navigate("/compare")}>
+        <button className="btns" onClick={() => navigate("/compare",{ state: { array } })}>
           Comparison Mode
         </button>
         <button
-          className=" px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95"
+          className="btns"
           onClick={() => navigate("/step-analysis", { state: { array } })}
         >
           Step-wise Analysis
@@ -252,7 +239,7 @@ const Visualizer = () => {
           currentIndices={currentIndices}
           swapIndices={swapIndices}
         />
-        <Stats stats={stats} activeAlgo={activeAlgo} timeTaken={timeTaken} />
+        <Stats stats={stats} activeAlgo={activeAlgo}/>
       </div>
     </div>
   );

@@ -1,9 +1,8 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import Bars from "../components/Bars";
 import Stats from "../components/Stats";
 import ArrayDisplay from "../components/ArrayDisplay";
-import { useNavigate } from "react-router-dom";
-import { useVisualizer } from "../context/VisualizerContext";
 import { sleep } from "../utils/delay";
 
 import {
@@ -36,11 +35,19 @@ const isSortedArray = (arr) => {
 
 const VisualizerComparison = () => {
   const navigate = useNavigate();
-  const { originalArray, setOriginalArray, speed } = useVisualizer();
+  const location = useLocation();
+   const initialArray = location.state?.array || [];
+  const [speed, setSpeed] = useState(300);
+  const [originalArray, setOriginalArray] = useState(initialArray);
+
+
+  // 👇 pichhle page se aaya hua array
+ 
+  
 
   /* ARRAYS */
-  const [arrayLeft, setArrayLeft] = useState([]);
-  const [arrayRight, setArrayRight] = useState([]);
+  const [arrayLeft, setArrayLeft] = useState(initialArray);
+  const [arrayRight, setArrayRight] = useState(initialArray);
 
   /* VISUAL */
   const [currentLeft, setCurrentLeft] = useState([]);
@@ -68,22 +75,32 @@ const VisualizerComparison = () => {
 
   /* SYNC ARRAY */
   useEffect(() => {
-    if (!Array.isArray(originalArray)) return;
-    setArrayLeft([...originalArray]);
-    setArrayRight([...originalArray]);
-  }, [originalArray]);
+    if (!Array.isArray(initialArray)) return;
+    setArrayLeft([...initialArray]);
+    setArrayRight([...initialArray]);
+  }, [initialArray]);
 
   /* SET ARRAY */
-  const applyCustomArray = () => {
-    const parsed = customInput
-      .split(",")
-      .map(n => Number(n.trim()))
-      .filter(n => !isNaN(n));
 
-    if (!parsed.length) return;
-    setOriginalArray(parsed);
-    setCustomInput("");
-  };
+const applyCustomArray = () => {
+  const parsed = customInput
+    .split(",")
+    .map(n => Number(n.trim()))
+    .filter(n => !isNaN(n));
+
+  if (!parsed.length) return;
+
+  // Original array ko update karo (to show input)
+  setOriginalArray([...parsed]);
+
+  // Left / Right arrays ko bhi set karo
+  setArrayLeft([...parsed]);
+  setArrayRight([...parsed]);
+
+  setCustomInput("");
+};
+
+
 
   /* -------- PLAY STEPS (SAME AS VISUALIZER) -------- */
   const playSteps = async (
@@ -225,21 +242,24 @@ const startComparison = () => {
 };
 
   /* RESET */
-  const resetComparison = () => {
-    leftStopRef.current = true;
-    rightStopRef.current = true;
-    leftPausedRef.current = false;
-    rightPausedRef.current = false;
+const resetComparison = () => {
+  leftStopRef.current = true;
+  rightStopRef.current = true;
+  leftPausedRef.current = false;
+  rightPausedRef.current = false;
 
-    setArrayLeft([...originalArray]);
-    setArrayRight([...originalArray]);
-    setCurrentLeft([]);
-    setCurrentRight([]);
-    setSwapLeft([]);
-    setSwapRight([]);
-    setStatsLeft({ comparisons: 0, swaps: 0, time: 0 });
-    setStatsRight({ comparisons: 0, swaps: 0, time: 0 });
-  };
+  // Left / Right ko originalArray se restore karo
+  setArrayLeft([...originalArray]);
+  setArrayRight([...originalArray]);
+  setCurrentLeft([]);
+  setCurrentRight([]);
+  setSwapLeft([]);
+  setSwapRight([]);
+  setStatsLeft({ comparisons: 0, swaps: 0, time: 0 });
+  setStatsRight({ comparisons: 0, swaps: 0, time: 0 });
+};
+
+
 
   return (
     <div className="min-h-screen px-6 py-8 bg-gradient-to-br from-black via-gray-900 to-black text-white">
@@ -265,13 +285,7 @@ const startComparison = () => {
         {binaryWarning}
       </p>
     )}
-<button  className="px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95" onClick={() => navigate("/")}>Back</button>
+<button  className="btns" onClick={() => navigate("/")}>Back</button>
     {/* ===== ARRAYS ===== */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
       
@@ -304,13 +318,10 @@ const startComparison = () => {
           transition
         "
       />
-      <button className="px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-red-600 to-green-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-green-600 hover:to-red-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Set Array</button>
+      <button className="btns" onClick={applyCustomArray}>
+  Set Array
+</button>
+
     </div>
       {/* -------- ALGORITHM SELECT DROPDOWNS -------- */}
 <div className="flex justify-center gap-12 mb-8">
@@ -423,42 +434,18 @@ const startComparison = () => {
 
 
       <div className="flex justify-center gap-4 mb-6">
-        <button className="px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95" onClick={startComparison}>Start</button>
-        <button className="px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95" onClick={() => {
+        <button className="btns" onClick={startComparison}>Start</button>
+        <button className="btns" onClick={() => {
           leftPausedRef.current = true;
           rightPausedRef.current = true;
         }}>Pause</button>
 
-        <button className="px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95"  onClick={() => {
+        <button className="btns"  onClick={() => {
           leftPausedRef.current = false;
           rightPausedRef.current = false;
         }}>Resume</button>
 
-        <button className="px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95"  onClick={resetComparison}>Reset</button>
+        <button className="btns"  onClick={resetComparison}>Reset</button>
         
       </div>
 

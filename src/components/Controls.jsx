@@ -29,58 +29,21 @@ const Controls = ({
       <button
   onClick={startBubble}
   className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95
+    btns
   "
 >
   Bubble
 </button>
 
-      <button onClick={startMerge} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Merge</button>
+      <button onClick={startMerge} className="btns">Merge</button>
       <button onClick={startQuick} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Quick</button>
+  btns">Quick</button>
       <button onClick={startInsertion} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Insertion</button>
+    btns">Insertion</button>
       <button onClick={startSelection} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Selection</button>
+    btns">Selection</button>
       <button onClick={startHeap} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Heap</button>
+    btns">Heap</button>
 
       {/* CUSTOM ARRAY */}
       <input
@@ -101,13 +64,7 @@ const Controls = ({
       />
 
       <button onClick={applyCustomArray} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">
+    btns">
         Set Array
       </button>
 
@@ -127,58 +84,28 @@ const Controls = ({
     transition-all duration-300
     focus:border-purple-500
     focus:ring-2 focus:ring-purple-500
-    focus:shadow-lg
-  "
+    focus:shadow-lg"
 />
 
       <button onClick={startLinearSearch} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">
+    btns">
         Linear Search
       </button>
 
       <button onClick={startBinarySearch} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">
+    btns">
         Binary Search
       </button>
 
       {/* CONTROLS */}
       <button onClick={resetArray} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Reset</button>
+    btns">Reset</button>
 
       <button onClick={pause} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Pause</button>
+   btns">Pause</button>
+    
       <button onClick={resume} className="
-    px-5 py-2 rounded-xl font-semibold text-white
-    bg-gradient-to-r from-blue-600 to-purple-600
-    shadow-lg
-    transition-all duration-300
-    hover:from-purple-600 hover:to-blue-600
-    hover:scale-105 hover:shadow-xl
-    active:scale-95">Resume</button>
+    btns">Resume</button>
 
       {/* SPEED */}
      

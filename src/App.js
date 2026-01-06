@@ -2,11 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Visualizer from "./pages/Visualizer";
 import Comparison from "./pages/Comparison";
 import StepAnalysis from "./pages/StepAnalysis";
-import { VisualizerProvider } from "./context/VisualizerContext";
+
 
 function App() {
   return (
-    <VisualizerProvider>
+    
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Visualizer />} />
@@ -14,7 +14,7 @@ function App() {
           <Route path="/step-analysis" element={<StepAnalysis />} />
         </Routes>
       </BrowserRouter>
-    </VisualizerProvider>
+    
   );
 }
 
